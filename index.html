@@ -1,51 +1,91 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#b870ff">
-  <title>CreeperMinion Vault</title>
-  <!-- Keep this file small. Styling lives in style.css; behavior in script.js;
-       weapon positions and links in weapons.json. -->
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#101b29">
+  <meta name="description" content="CreeperMinion — Phantom Forces videos, weapon builds, interactive armory and statistics.">
+  <title>CreeperMinion | Videos, Builds & Armory</title>
+  <!-- Existing deep links to guns keep working after the armory moves to /armory/. -->
+  <script>
+    if (new URLSearchParams(location.search).has('weapon')) {
+      location.replace('/armory/' + location.search + location.hash);
+    }
+  </script>
+  <link rel="stylesheet" href="home.css">
+  <!-- The SAME sidebar on every page: your custom colors/logo remain in sidebar.css. -->
   <link rel="stylesheet" href="sidebar.css">
-  <script src="script.js" defer></script>
-  <script src="assets/resources/effects.js" defer></script>
+  <script src="home.js" defer></script>
   <script src="sidebar.js" defer></script>
 </head>
-<body>
-  <main id="stage">
-    <div id="scene" aria-label="Interactive Phantom Forces armory">
-      <!-- EDIT HERE only when you move/rename the room background.
-           Your recently moved background now lives under assets/resources/. -->
-      <img id="room" src="assets/resources/WebpageBG1.png"
-           alt="Phantom Forces Armory Room" draggable="false">
-      <div id="dimmer" aria-hidden="true"></div>
-      <!-- The script puts transparent, clickable weapon images here. -->
-      <div id="weapons-layer"></div>
-    </div>
-  </main>
-
-  <!-- ONE reusable information panel, regardless of how many guns we add. -->
-  <aside id="panel" hidden role="dialog" aria-modal="false" aria-labelledby="panel-title">
-    <div class="panel-header">
-      <div class="panel-heading">
-        <div class="eyebrow">PHANTOM FORCES / WEAPON INTEL</div>
-        <h1 id="panel-title"></h1>
-        <p id="panel-subtitle" hidden></p>
+<body class="home-page">
+  <div class="home-shell">
+    <header class="home-header">
+      <a class="home-wordmark" href="/" aria-label="CreeperMinion homepage">CREEPER<span>MINION</span></a>
+      <div class="home-socials" aria-label="Social channels">
+        <a href="https://www.youtube.com/@creeper_minion" target="_blank" rel="noopener noreferrer" aria-label="CreeperMinion YouTube">YT <span>↗</span></a>
+        <a href="https://www.tiktok.com/@creeperminionyt" target="_blank" rel="noopener noreferrer" aria-label="CreeperMinion TikTok">TT <span>↗</span></a>
       </div>
-      <button id="close" type="button" aria-label="Close weapon information">×</button>
-    </div>
-    <section class="resource-section" aria-labelledby="videos-label">
-      <h2 id="videos-label">VIDEOS</h2>
-      <div id="videos" class="resource-list"></div>
-    </section>
-    <section class="resource-section" aria-labelledby="stats-label">
-      <h2 id="stats-label">STATISTICS &amp; DOCUMENTS</h2>
-      <div id="stats" class="resource-list"></div>
-    </section>
-  </aside>
+    </header>
+
+    <main id="home-content">
+      <div class="home-section-heading">
+        <div><span class="home-kicker">FROM THE CHANNEL</span><h1>Latest uploads</h1></div>
+        <a class="home-more" href="https://www.youtube.com/@creeper_minion/videos" target="_blank" rel="noopener noreferrer">All videos ↗</a>
+      </div>
+
+      <!-- One large video, two portrait Shorts: designed around your sketch.
+           The text / thumbnail is updated by home.js from content/latest-videos.json.
+           YouTube players load ONLY after a visitor clicks Play. -->
+      <section class="home-video-grid" aria-label="Featured YouTube uploads">
+        <article class="home-video-card home-featured" id="home-featured">
+          <div class="home-media home-media-wide">
+            <img id="featured-thumb" src="https://i.ytimg.com/vi/Bs9qGUM0R7U/hqdefault.jpg" alt="" loading="eager">
+            <button class="home-play" type="button" data-play="featured" aria-label="Play featured video"><span aria-hidden="true">▶</span></button>
+          </div>
+          <div class="home-video-caption"><span class="home-type" id="featured-type">FEATURED VIDEO</span>
+            <h2 id="featured-title">C25 Review Video</h2>
+            <a id="featured-link" href="https://www.youtube.com/watch?v=Bs9qGUM0R7U" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>
+          </div>
+        </article>
+        <article class="home-video-card home-short" id="home-short-1">
+          <div class="home-media home-media-tall">
+            <img id="short-1-thumb" src="https://i.ytimg.com/vi/UnW7HUaMybI/hqdefault.jpg" alt="" loading="lazy">
+            <button class="home-play" type="button" data-play="short-1" aria-label="Play first Short"><span aria-hidden="true">▶</span></button>
+          </div>
+          <div class="home-video-caption"><span class="home-type">SHORT</span>
+            <h2 id="short-1-title">AK47 Build</h2>
+            <a id="short-1-link" href="https://www.youtube.com/shorts/UnW7HUaMybI" target="_blank" rel="noopener noreferrer">Watch ↗</a>
+          </div>
+        </article>
+        <article class="home-video-card home-short" id="home-short-2">
+          <div class="home-media home-media-tall">
+            <img id="short-2-thumb" src="https://i.ytimg.com/vi/yydeKXlapq0/hqdefault.jpg" alt="" loading="lazy">
+            <button class="home-play" type="button" data-play="short-2" aria-label="Play second Short"><span aria-hidden="true">▶</span></button>
+          </div>
+          <div class="home-video-caption"><span class="home-type">SHORT</span>
+            <h2 id="short-2-title">Insane Automag III Build</h2>
+            <a id="short-2-link" href="https://www.youtube.com/shorts/yydeKXlapq0" target="_blank" rel="noopener noreferrer">Watch ↗</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="home-section-links" aria-label="Explore CreeperMinion">
+        <a class="home-feature-link home-armory-link" href="/armory/">
+          <span class="home-tile-kicker">EXPLORE</span><strong>THE ARMORY</strong>
+          <span class="home-tile-description">Select a weapon. Discover the videos.</span><span class="home-tile-arrow">↗</span>
+        </a>
+        <a class="home-feature-link" href="https://www.youtube.com/@creeper_minion/videos" target="_blank" rel="noopener noreferrer">
+          <span class="home-tile-kicker">WATCH</span><strong>BUILDS &amp; GUIDES</strong>
+          <span class="home-tile-description">Loadouts, reviews and rankings.</span><span class="home-tile-arrow">↗</span>
+        </a>
+        <div class="home-feature-link home-not-ready" aria-label="Statistics library coming soon">
+          <span class="home-tile-kicker">IN DEVELOPMENT</span><strong>STATISTICS</strong>
+          <span class="home-tile-description">Weapon data, comparison tools and spreadsheets.</span>
+        </div>
+      </section>
+      <footer class="home-footer"><span>CREEPERMINION</span><span>Unofficial Phantom Forces creator resource</span></footer>
+    </main>
+  </div>
 </body>
 </html>
-

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b870ff">
+  <title>CreeperMinion Vault — Armory</title>
+  <!-- New home is /; this existing armory is now at /armory/.
+       The base tag preserves your root asset/CSS/JSON paths without touching
+       your customized style.css, script.js or weapons.json. -->
+  <base href="/">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <script src="script.js" defer></script>
+  <script src="assets/resources/effects.js" defer></script>
+  <script src="sidebar.js" defer></script>
+</head>
+<body>
+  <main id="stage">
+    <div id="scene" aria-label="Interactive Phantom Forces armory">
+      <!-- Your customized room background stays in its original folder. -->
+      <img id="room" src="assets/resources/WebpageBG1.png"
+           alt="Phantom Forces Armory Room" draggable="false">
+      <div id="dimmer" aria-hidden="true"></div>
+      <div id="weapons-layer"></div>
+    </div>
+  </main>
+  <!-- Reusable weapon information panel, retained from your existing HTML. -->
+  <aside id="panel" hidden role="dialog" aria-modal="false" aria-labelledby="panel-title">
+    <div class="panel-header">
+      <div class="panel-heading">
+        <div class="eyebrow">PHANTOM FORCES / WEAPON INTEL</div>
+        <h1 id="panel-title"></h1>
+        <p id="panel-subtitle" hidden></p>
+      </div>
+      <button id="close" type="button" aria-label="Close weapon information">×</button>
+    </div>
+    <section class="resource-section" aria-labelledby="videos-label">
+      <h2 id="videos-label">VIDEOS</h2>
+      <div id="videos" class="resource-list"></div>
+    </section>
+    <section class="resource-section" aria-labelledby="stats-label">
+      <h2 id="stats-label">STATISTICS &amp; DOCUMENTS</h2>
+      <div id="stats" class="resource-list"></div>
+    </section>
+  </aside>
+</body>
+</html>

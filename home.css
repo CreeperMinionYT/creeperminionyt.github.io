@@ -1,0 +1,106 @@
+/* ==========================================================
+   CREEPERMINION HOMEPAGE — YOUR MAIN DESIGN CONTROLS
+   These styles are only for body.home-page.
+   Editing this file cannot change the armory's weapon layout.
+   ========================================================== */
+:root {
+  --home-bg: #101722;
+  --home-ink: #edf4fa;
+  --home-muted: #a2b5c5;
+  --home-purple: #b870ff;
+  --home-card: #182637;
+  --home-border: #31465a;
+  --home-content-width: 1330px;
+  --home-gap: 18px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body.home-page {
+  margin: 0; min-height: 100dvh; overflow-x: hidden; overflow-y: auto;
+  color: var(--home-ink); font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(ellipse 80% 600px at 50% -220px, #34335e 0%, transparent 75%), var(--home-bg);
+}
+body.home-page a { color: inherit; }
+body.home-page button { font: inherit; }
+.home-shell { max-width: var(--home-content-width); padding: 34px 34px 30px; margin: 0 auto; }
+.home-header {
+  min-height: 80px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 0 24px 66px; gap: 24px;
+  border-bottom: 1px solid var(--home-border);
+}
+.home-wordmark {
+  font-weight: 900; font-size: clamp(25px, 4.8vw, 58px); line-height: 1;
+  letter-spacing: .065em; white-space: nowrap; text-decoration: none;
+}
+.home-wordmark span { color: var(--home-purple); }
+.home-socials { display: flex; gap: 8px; }
+.home-socials a {
+  min-width: 62px; min-height: 42px; padding: 10px; display: flex; align-items: center; justify-content: center;
+  gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .1em;
+  border: 1px solid var(--home-border); background: rgba(18, 30, 44, .55);
+  text-decoration: none; transition: border-color .16s, background .16s;
+}
+.home-socials a:hover, .home-socials a:focus-visible { border-color: var(--home-purple); background: #27394d; }
+.home-socials a span { font-size: 16px; font-weight: 400; }
+.home-section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin: 35px 0 18px; }
+.home-kicker, .home-type, .home-tile-kicker {
+  color: var(--home-purple); font-size: 10px; font-weight: 800; letter-spacing: .18em;
+}
+.home-section-heading h1 { margin: 5px 0 0; font-size: clamp(27px, 3.2vw, 42px); letter-spacing: -.025em; }
+.home-more { padding-bottom: 7px; color: var(--home-muted) !important; font-size: 12px; text-decoration: none; white-space: nowrap; }
+.home-more:hover { color: #fff !important; text-decoration: underline; }
+.home-video-grid { display: grid; grid-template-columns: minmax(0, 1.8fr) repeat(2, minmax(0, .56fr)); gap: var(--home-gap); align-items: start; }
+.home-video-card { min-width: 0; overflow: hidden; background: var(--home-card); border: 1px solid var(--home-border); }
+.home-media { position: relative; overflow: hidden; background: #111a27; }
+.home-media-wide { aspect-ratio: 16/9; }
+.home-media-tall { aspect-ratio: 9/16; }
+.home-media img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .25s ease; }
+.home-media-tall img { /* YouTube's landscape thumbnail is cropped, preserving a portrait Shorts card. */ object-position: center; }
+.home-media:hover > img { transform: scale(1.025); }
+.home-play { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; padding: 0; width: 100%; height: 100%; border: none; cursor: pointer; background: linear-gradient(0deg, rgba(4, 9, 15, .23), transparent 48%); }
+.home-play span { width: 64px; height: 64px; display: grid; place-items: center; padding-left: 5px; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; background: rgba(12, 22, 33, .77); color: #fff; font-size: 24px; transition: background .2s, transform .2s; }
+.home-play:hover span, .home-play:focus-visible span { background: #7947ab; transform: scale(1.09); }
+.home-short .home-play span { width: 50px; height: 50px; font-size: 18px; }
+.home-media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.home-video-caption { padding: 16px 17px 18px; }
+.home-video-caption h2 { margin: 8px 0 14px; font-size: clamp(17px, 1.6vw, 23px); line-height: 1.24; overflow-wrap: anywhere; }
+.home-short .home-video-caption { padding: 12px 12px 14px; }
+.home-short .home-video-caption h2 { font-size: 14px; min-height: 52px; }
+.home-video-caption a { display: inline-block; color: #bfd7e9 !important; font-size: 12px; text-decoration: none; }
+.home-video-caption a:hover { text-decoration: underline; }
+.home-section-links { margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--home-gap); }
+.home-feature-link { position: relative; min-height: 164px; display: flex; flex-direction: column; align-items: start; padding: 24px; gap: 8px; background: var(--home-card); border: 1px solid var(--home-border); text-decoration: none; transition: border-color .18s, transform .18s; }
+a.home-feature-link:hover, a.home-feature-link:focus-visible { border-color: var(--home-purple); transform: translateY(-2px); }
+.home-armory-link { background: linear-gradient(90deg, rgba(12, 24, 35, .83), rgba(12, 24, 35, .45)), url('assets/resources/WebpageBG1.png') center 43%/cover; }
+.home-feature-link strong { font-size: clamp(17px, 1.8vw, 24px); letter-spacing: .035em; }
+.home-tile-description { max-width: 250px; color: #c4d1de; line-height: 1.5; font-size: 12px; }
+.home-tile-arrow { position: absolute; right: 18px; top: 18px; color: #fff; }
+.home-not-ready { opacity: .73; cursor: default; }
+.home-footer { display: flex; justify-content: space-between; gap: 10px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--home-border); color: var(--home-muted); font-size: 10px; letter-spacing: .08em; }
+@media (max-width: 950px) {
+  .home-video-grid { grid-template-columns: 1fr 1fr; }
+  .home-featured { grid-column: 1/-1; }
+  .home-media-tall { aspect-ratio: 9/12; }
+  .home-short .home-video-caption h2 { min-height: 0; }
+}
+@media (max-width: 650px) {
+  .home-shell { padding: 24px 15px 30px; }
+  .home-header { padding: 0 0 20px 46px; min-height: 55px; gap: 8px; }
+  .home-wordmark { font-size: clamp(16px, 5.5vw, 29px); letter-spacing: .025em; }
+  .home-socials { gap: 4px; }
+  .home-socials a { min-width: 31px; min-height: 32px; padding: 5px; font-size: 10px; }
+  .home-socials a span { display: none; }
+  .home-section-heading { margin-top: 24px; }
+  .home-video-grid { gap: 10px; }
+  .home-short .home-media { aspect-ratio: 9/15; }
+  .home-short .home-video-caption { padding: 10px; }
+  .home-short .home-video-caption h2 { font-size: 12px; }
+  .home-short .home-play span { width: 43px; height: 43px; }
+  .home-section-links { grid-template-columns: 1fr; gap: 10px; margin-top: 20px; }
+  .home-feature-link { min-height: 135px; padding: 20px; }
+  .home-footer { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .home-media img, .home-feature-link, .home-play span { transition: none; }
+}

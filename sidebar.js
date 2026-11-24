@@ -2,26 +2,23 @@
    CREEPERMINION — COLLAPSIBLE SITE NAVIGATION
    - Runs independently of the armory's script.js.
    - Add real pages by changing a "soon" item to an item with "href".
-   - The armory stays at / until we create a separate homepage.
+   - Home is now /, and the original armory is at /armory/.
    ================================================================ */
 (() => {
   'use strict';
-
   // EDIT HERE: Sidebar items and their destinations.
   // "soon: true" displays an inactive placeholder, NOT a broken link.
   // When a page exists, replace "soon: true" with href: '/builds/' etc.
   const items = [
-    { label: 'Home', soon: true },
-    { label: 'Armory', href: '/' },
+    { label: 'Home', href: '/' },
+    { label: 'Armory', href: '/armory/' },
     { label: 'Builds', soon: true },
     { label: 'Tier Lists', soon: true },
     { label: 'Statistics', soon: true },
     { label: "What's New", soon: true }
   ];
-
   // EDIT HERE: Swap this destination if your YouTube channel URL changes.
   const channelUrl = 'https://www.youtube.com/@creeper_minion';
-
   const toggle = document.createElement('button');
   toggle.id = 'cm-menu-toggle';
   toggle.type = 'button';
@@ -33,13 +30,11 @@
   const shade = document.createElement('div');
   shade.id = 'cm-nav-shade';
   shade.setAttribute('aria-hidden', 'true');
-
   const sidebar = document.createElement('aside');
   sidebar.id = 'cm-sidebar';
   sidebar.setAttribute('aria-label', 'Site navigation');
   sidebar.setAttribute('aria-hidden', 'true');
   sidebar.inert = true; // Hidden links are excluded from keyboard navigation.
-
   const brand = document.createElement('div');
   brand.className = 'cm-nav-brand';
   const brandName = document.createElement('strong');
@@ -51,7 +46,6 @@
   const nav = document.createElement('nav');
   nav.className = 'cm-nav-links';
   nav.setAttribute('aria-label', 'Pages');
-
   const currentPath = window.location.pathname.replace(/index\.html$/, '') || '/';
   for (const item of items) {
     let element;
@@ -72,7 +66,6 @@
     }
     nav.append(element);
   }
-
   const footer = document.createElement('div');
   footer.className = 'cm-nav-footer';
   const channel = document.createElement('a');
@@ -82,17 +75,14 @@
   channel.target = '_blank';
   channel.rel = 'noopener noreferrer';
   footer.append(channel);
-
   const logoLink = document.createElement('a');
-   logoLink.className = 'cm-nav-logo';
-   logoLink.href = channelUrl;
-   logoLink.target = '_blank';
-   logoLink.rel = 'noopener noreferrer';
-   logoLink.setAttribute('aria-label', 'Visit CreeperMinion on YouTube');
-
-   sidebar.append(brand, nav, footer, logoLink);
+  logoLink.className = 'cm-nav-logo';
+  logoLink.href = channelUrl;
+  logoLink.target = '_blank';
+  logoLink.rel = 'noopener noreferrer';
+  logoLink.setAttribute('aria-label', 'Visit CreeperMinion on YouTube');
+  sidebar.append(brand, nav, footer, logoLink);
   document.body.append(toggle, shade, sidebar);
-
   function setOpen(open) {
     // Don't leave a gun popup open under the navigation overlay.
     // Clicking its existing close button preserves script.js behavior and URL state.
@@ -108,7 +98,6 @@
     sidebar.setAttribute('aria-hidden', String(!open));
     sidebar.inert = !open;
   }
-
   toggle.addEventListener('click', () => setOpen(!document.body.classList.contains('cm-nav-open')));
   shade.addEventListener('click', () => setOpen(false));
   document.addEventListener('keydown', event => {
