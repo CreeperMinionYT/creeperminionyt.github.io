@@ -163,8 +163,8 @@ body.cm-nav-open #cm-sidebar { transform: translateX(0); visibility: visible; }
   --nav-logo-size: 142px;
 }
 
-#cm-sidebar::after {
-  content: "";
+.cm-nav-logo {
+  cursor: pointer;
   display: block;
   flex: 0 0 auto;
   align-self: center;
@@ -173,3 +173,12 @@ body.cm-nav-open #cm-sidebar { transform: translateX(0); visibility: visible; }
   margin: 14px 0 0;
   background: url("assets/resources/ProfilePic2026.png")
               center / contain no-repeat;
+
+.cm-nav-logo:hover {
+  filter: brightness(1.12);
+}
+
+.cm-nav-logo:focus-visible {
+  outline: 2px solid #cae8fa;
+  outline-offset: 4px;
+}
