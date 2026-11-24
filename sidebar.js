@@ -60,7 +60,7 @@
       element.className = 'cm-nav-soon';
       element.textContent = item.label;
       const soon = document.createElement('em');
-      soon.textContent = 'Soon';
+      soon.textContent = 'Coming Soon';
       element.append(soon);
     } else {
       element = document.createElement('a');
