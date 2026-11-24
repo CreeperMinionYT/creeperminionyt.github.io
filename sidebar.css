@@ -158,3 +158,18 @@ body.cm-nav-open #cm-sidebar { transform: translateX(0); visibility: visible; }
 @media (prefers-reduced-motion: reduce) {
   #cm-menu-toggle, .cm-menu-bars span, #cm-nav-shade, #cm-sidebar, .cm-nav-link { transition: none; }
 }
+
+:root {
+  --nav-logo-size: 142px;
+}
+
+#cm-sidebar::after {
+  content: "";
+  display: block;
+  flex: 0 0 auto;
+  align-self: center;
+  width: min(var(--nav-logo-size), 100%);
+  aspect-ratio: 1 / 1;
+  margin: 14px 0 0;
+  background: url("assets/resources/ProfilePic2026.png")
+              center / contain no-repeat;
