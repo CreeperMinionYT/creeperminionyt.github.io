@@ -83,7 +83,14 @@
   channel.rel = 'noopener noreferrer';
   footer.append(channel);
 
-  sidebar.append(brand, nav, footer);
+  const logoLink = document.createElement('a');
+   logoLink.className = 'cm-nav-logo';
+   logoLink.href = channelUrl;
+   logoLink.target = '_blank';
+   logoLink.rel = 'noopener noreferrer';
+   logoLink.setAttribute('aria-label', 'Visit CreeperMinion on YouTube');
+
+   sidebar.append(brand, nav, footer, logoLink);
   document.body.append(toggle, shade, sidebar);
 
   function setOpen(open) {
