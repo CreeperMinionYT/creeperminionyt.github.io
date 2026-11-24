@@ -1,0 +1,160 @@
+/* ================================================================
+   CREEPERMINION — SCREEN-FILLING ROOM + FLOATING SIDEBAR
+   These are the only new CSS rules you need for navigation/layout.
+   Keep your existing style.css unchanged; load THIS FILE AFTER it.
+
+   DESKTOP: cover the viewport without stretching the 16:9 scene.
+   PHONES / PORTRAIT: fit the entire scene, preserving all weapons.
+
+   NOTE: This scales the ENTIRE #scene, including guns/dust/dimmer.
+   No weapon.json coordinates need adjusting.
+   ================================================================ */
+
+/* The browser window clips any part of the oversized desktop scene. */
+#stage {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Use absolute centering so both sides/top/bottom crop evenly. */
+#scene {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100vw, 177.777778dvh); /* 16:9 scene, desktop COVER */
+  aspect-ratio: 16 / 9;
+}
+
+/* Mobile / portrait FIT — whole scene visible, with possible letterboxing. */
+@media (max-width: 700px), (pointer: coarse), (orientation: portrait) {
+  #scene { width: min(100vw, 177.777778dvh); }
+}
+
+/* ================================================================
+   CREEPERMINION — SITE NAVIGATION
+   This file is independent of style.css and script.js.
+   Tweak the values below without affecting weapons or popups.
+   ================================================================ */
+:root {
+  --nav-width: 258px;                  /* Width when open */
+  --nav-speed: 240ms;                  /* Slide animation duration */
+  --nav-background: rgba(18, 30, 43, .985);
+  --nav-border: #41617a;
+  --nav-text: #f2f6fa;
+  --nav-muted: #a6bfce;
+  --nav-active: #315873;
+  --nav-hover: rgba(131, 173, 198, .15);
+  --nav-screen-dim: rgba(0, 0, 0, .32);
+}
+
+/* Small permanent trigger; does NOT reserve width or move the room. */
+#cm-menu-toggle {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  z-index: 53;
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  padding: 0;
+  border: 1px solid rgba(168, 196, 214, .48);
+  background: rgba(17, 30, 43, .83);
+  color: #edf5fa;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 150ms ease;
+}
+#cm-menu-toggle:hover,
+#cm-menu-toggle:focus-visible { background: rgba(48, 82, 105, .95); }
+#cm-menu-toggle:focus-visible { outline: 2px solid #cae8fa; outline-offset: 3px; }
+.cm-menu-bars { position: relative; display: block; width: 20px; height: 16px; }
+.cm-menu-bars span {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform var(--nav-speed) ease, top var(--nav-speed) ease, opacity 120ms ease;
+}
+.cm-menu-bars span:nth-child(1) { top: 1px; }
+.cm-menu-bars span:nth-child(2) { top: 7px; }
+.cm-menu-bars span:nth-child(3) { top: 13px; }
+body.cm-nav-open .cm-menu-bars span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+body.cm-nav-open .cm-menu-bars span:nth-child(2) { opacity: 0; }
+body.cm-nav-open .cm-menu-bars span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+
+/* Clickable overlay dims the room without changing scene scaling. */
+#cm-nav-shade {
+  position: fixed;
+  inset: 0;
+  z-index: 51;
+  background: var(--nav-screen-dim);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--nav-speed) ease, visibility var(--nav-speed) ease;
+}
+body.cm-nav-open #cm-nav-shade {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* The actual collapsible sidebar. */
+#cm-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 52;
+  width: min(var(--nav-width), calc(100vw - 48px));
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 18px 14px 20px;
+  background: var(--nav-background);
+  color: var(--nav-text);
+  border-right: 1px solid var(--nav-border);
+  box-shadow: 12px 0 28px rgba(0,0,0,.20);
+  transform: translateX(-105%);
+  visibility: hidden;
+  transition: transform var(--nav-speed) ease, visibility var(--nav-speed) ease;
+}
+body.cm-nav-open #cm-sidebar { transform: translateX(0); visibility: visible; }
+.cm-nav-brand { min-height: 60px; padding: 8px 0 0 60px; }
+.cm-nav-brand strong { display: block; font-size: 13px; letter-spacing: .08em; }
+.cm-nav-brand small { display: block; margin-top: 5px; color: var(--nav-muted); font-size: 10px; letter-spacing: .12em; }
+.cm-nav-links { display: grid; gap: 4px; margin-top: 30px; }
+.cm-nav-link,
+.cm-nav-soon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 43px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 3px;
+  font: 13px/1.3 Arial, Helvetica, sans-serif;
+  text-align: left;
+  text-decoration: none;
+  color: var(--nav-text);
+}
+.cm-nav-link { transition: background 140ms ease; }
+.cm-nav-link:hover,
+.cm-nav-link:focus-visible { background: var(--nav-hover); outline: none; }
+.cm-nav-link[aria-current="page"] { background: var(--nav-active); font-weight: 700; }
+.cm-nav-soon { color: var(--nav-muted); cursor: default; opacity: .72; }
+.cm-nav-soon em { margin-left: auto; font-size: 10px; font-style: normal; opacity: .8; }
+.cm-nav-footer { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(161, 187, 202, .24); }
+.cm-nav-footer .cm-nav-link { font-size: 12px; }
+
+@media (max-width: 700px) {
+  #cm-menu-toggle { top: 10px; left: 10px; width: 40px; height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #cm-menu-toggle, .cm-menu-bars span, #cm-nav-shade, #cm-sidebar, .cm-nav-link { transition: none; }
+}
