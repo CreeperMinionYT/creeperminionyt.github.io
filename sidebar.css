@@ -173,6 +173,7 @@ body.cm-nav-open #cm-sidebar { transform: translateX(0); visibility: visible; }
   margin: 14px 0 0;
   background: url("assets/resources/ProfilePic2026.png")
               center / contain no-repeat;
+}
 
 .cm-nav-logo:hover {
   filter: brightness(1.12);
