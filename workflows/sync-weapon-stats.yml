@@ -1,0 +1,83 @@
+# CreeperMinion / Phantom Forces — automatic Google Sheets statistics refresh.
+#
+# This workflow deliberately keeps the existing GitHub Pages configuration:
+# Settings > Pages > Deploy from a branch > main > /(root)
+# It uses GitHub's Pages Build API after updating the JSON. This matters:
+# commits made with the default GITHUB_TOKEN do NOT trigger Pages automatically.
+#
+# Edit the scheduled check times below if desired. Manual runs are available
+# under GitHub > Actions > Sync weapon statistics > Run workflow.
+name: Sync weapon statistics
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Four checks each day (UTC): 02:17, 08:17, 14:17, and 20:17.
+    - cron: '17 2,8,14,20 * * *'
+
+permissions:
+  contents: write  # May commit updated content/weapon-stats.json.
+  pages: write     # May explicitly request a GitHub Pages build.
+
+concurrency:
+  group: creeperminion-weapon-stats
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current site
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Download Google Sheet and build weapon JSON
+        env:
+          SHEET_CSV_URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQdCLSd7WHVOl6EV6ILqvyRDEJcJCDPANpQFjxhHO6RXRna8U7v-scL4SztLW9wIQ1AkFhteKMSzHhF/pub?gid=0&single=true&output=csv
+          SHEET_VIEW_URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQdCLSd7WHVOl6EV6ILqvyRDEJcJCDPANpQFjxhHO6RXRna8U7v-scL4SztLW9wIQ1AkFhteKMSzHhF/pubhtml?gid=0&single=true
+        run: |
+          # Existing Python importer validates all 14 required column headings,
+          # handles optional Notes and Weapon ID, and rejects duplicate IDs.
+          # Failure stops here: invalid source data won't be published.
+          python3 scripts/update_weapon_stats.py \
+            --url "$SHEET_CSV_URL" \
+            --sheet-link "$SHEET_VIEW_URL"
+
+      - name: Check whether anything changed
+        id: diff
+        shell: bash
+        run: |
+          if git diff --quiet -- content/weapon-stats.json; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            echo 'No changes in Google Sheet data.'
+          else
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+            echo 'Weapon statistics changed.'
+          fi
+
+      - name: Save the updated canonical database
+        if: steps.diff.outputs.changed == 'true'
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/weapon-stats.json
+          git commit -m 'Sync weapon statistics from published Google Sheet'
+          git push origin HEAD:main
+
+      - name: Rebuild GitHub Pages from main
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          # GitHub Actions bot commits do not trigger a normal Pages build.
+          # This supported REST endpoint requests one explicitly while keeping
+          # the existing branch-based publishing configuration unchanged.
+          curl --fail-with-body --silent --show-error --location \
+            --request POST \
+            --header 'Accept: application/vnd.github+json' \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/builds"
+          echo 'Requested a new GitHub Pages build.'
