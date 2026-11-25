@@ -13,7 +13,6 @@
     }
   </script>
   <link rel="stylesheet" href="home.css">
-  <!-- The SAME sidebar on every page: your custom colors/logo remain in sidebar.css. -->
   <link rel="stylesheet" href="sidebar.css">
   <script src="home.js" defer></script>
   <script src="sidebar.js" defer></script>
@@ -27,16 +26,11 @@
         <a href="https://www.tiktok.com/@creeperminionyt" target="_blank" rel="noopener noreferrer" aria-label="CreeperMinion TikTok">TT <span>↗</span></a>
       </div>
     </header>
-
     <main id="home-content">
       <div class="home-section-heading">
         <div><span class="home-kicker">FROM THE CHANNEL</span><h1>Latest uploads</h1></div>
         <a class="home-more" href="https://www.youtube.com/@creeper_minion/videos" target="_blank" rel="noopener noreferrer">All videos ↗</a>
       </div>
-
-      <!-- One large video, two portrait Shorts: designed around your sketch.
-           The text / thumbnail is updated by home.js from content/latest-videos.json.
-           YouTube players load ONLY after a visitor clicks Play. -->
       <section class="home-video-grid" aria-label="Featured YouTube uploads">
         <article class="home-video-card home-featured" id="home-featured">
           <div class="home-media home-media-wide">
@@ -69,7 +63,6 @@
           </div>
         </article>
       </section>
-
       <section class="home-section-links" aria-label="Explore CreeperMinion">
         <a class="home-feature-link home-armory-link" href="/armory/">
           <span class="home-tile-kicker">EXPLORE</span><strong>THE ARMORY</strong>
@@ -79,17 +72,11 @@
           <span class="home-tile-kicker">WATCH</span><strong>BUILDS &amp; GUIDES</strong>
           <span class="home-tile-description">Loadouts, reviews and rankings.</span><span class="home-tile-arrow">↗</span>
         </a>
+        <!-- NEW: statistics card now links to the active database. -->
         <a class="home-feature-link" href="/statistics/">
-          <span class="home-tile-kicker">EXPLORE</span>
-          <strong>STATISTICS</strong>
-          <span class="home-tile-description">
-            Browse, sort and inspect weapon statistics.
-          </span>
-          <span class="home-tile-arrow">↗</span>
+          <span class="home-tile-kicker">EXPLORE</span><strong>STATISTICS</strong>
+          <span class="home-tile-description">Browse, sort and inspect weapon statistics.</span><span class="home-tile-arrow">↗</span>
         </a>
-          <span class="home-tile-kicker">IN DEVELOPMENT</span><strong>STATISTICS</strong>
-          <span class="home-tile-description">Weapon data, comparison tools and spreadsheets.</span>
-        </div>
       </section>
       <footer class="home-footer"><span>CREEPERMINION</span><span>Unofficial Phantom Forces creator resource</span></footer>
     </main>
