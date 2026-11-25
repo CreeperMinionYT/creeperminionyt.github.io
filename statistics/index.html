@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101722">
+  <meta name="description" content="Explore CreeperMinion's sortable Phantom Forces weapon statistics and individual weapon notes.">
+  <title>CreeperMinion | Weapon Statistics</title>
+  <!-- This page is independent of the full-screen armory layout. -->
+  <base href="/">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="statistics/statistics.css">
+  <script src="sidebar.js" defer></script>
+  <script src="statistics/statistics.js" defer></script>
+</head>
+<body class="stats-page">
+  <div class="stats-shell">
+    <header class="stats-masthead">
+      <a class="stats-wordmark" href="/">CREEPER<span>MINION</span></a>
+      <div class="stats-heading">
+        <div class="stats-eyebrow">PHANTOM FORCES / DATA</div>
+        <h1>Weapon Statistics</h1>
+        <p>Search, sort, and inspect the master weapon dataset.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="stats-tools" aria-label="Filter weapon statistics">
+        <label class="stats-control stats-search-label">
+          <span>SEARCH</span>
+          <input id="stats-search" type="search" placeholder="Weapon name…" autocomplete="off">
+        </label>
+        <label class="stats-control">
+          <span>SLOT</span>
+          <select id="stats-slot"><option value="">All slots</option></select>
+        </label>
+        <label class="stats-control">
+          <span>CLASS</span>
+          <select id="stats-class"><option value="">All classes</option></select>
+        </label>
+        <label class="stats-control">
+          <span>HEATMAP REFERENCE</span>
+          <select id="stats-reference">
+            <option value="class">Same class</option>
+            <option value="all">All weapons</option>
+            <option value="none">No coloring</option>
+          </select>
+        </label>
+      </section>
+
+      <div class="stats-legend">
+        <span id="stats-count" aria-live="polite">Loading weapons…</span>
+        <div class="stats-key" aria-label="Stat heatmap legend">
+          <span class="stats-key-swatch good"></span> Favorable
+          <span class="stats-key-swatch middle"></span> Average / insufficient data
+          <span class="stats-key-swatch bad"></span> Unfavorable
+        </div>
+      </div>
+
+      <section class="stats-table-wrap" aria-label="Sortable weapon statistics table" tabindex="0">
+        <table class="stats-table" id="stats-table">
+          <thead id="stats-head"></thead>
+          <tbody id="stats-body"><tr><td>Loading master database…</td></tr></tbody>
+        </table>
+      </section>
+      <p class="stats-help">Click any column heading to sort; click again to reverse. Click a <strong class="stats-example-link">purple weapon name</strong> to read its notes. Scroll sideways to see every statistic.</p>
+      <p class="stats-footnote">Color reflects relative raw statistic values, not a complete weapon ranking. Classes with fewer than two comparable values are neutral. Unavailable values stay blank.</p>
+      <p class="stats-source" id="stats-source"></p>
+    </main>
+  </div>
+
+  <!-- The note panel is populated safely with textContent, not raw HTML. -->
+  <dialog id="stats-notes" class="stats-dialog" aria-labelledby="stats-dialog-title">
+    <div class="stats-dialog-top">
+      <div><div class="stats-eyebrow">WEAPON NOTES</div><h2 id="stats-dialog-title"></h2></div>
+      <button type="button" id="stats-notes-close" class="stats-dialog-close" aria-label="Close notes">×</button>
+    </div>
+    <div class="stats-dialog-meta" id="stats-dialog-meta"></div>
+    <div class="stats-dialog-content" id="stats-dialog-body"></div>
+    <div class="stats-dialog-links" id="stats-dialog-links"></div>
+  </dialog>
+</body>
+</html>
