@@ -14,7 +14,7 @@
     { label: 'Armory', href: '/armory/' },
     { label: 'Builds', soon: true },
     { label: 'Tier Lists', soon: true },
-    { label: 'Statistics', soon: true },
+    { label: 'Statistics', href: '/statistics/' },
     { label: "What's New", soon: true }
   ];
   // EDIT HERE: Swap this destination if your YouTube channel URL changes.
