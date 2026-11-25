@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "description": "CreeperMinion Phantom Forces — canonical weapon statistics",
+  "source": "Exported spreadsheet CSV",
+  "columns": [
+    {
+      "key": "thumbnail",
+      "label": "Thumbnail",
+      "type": "image",
+      "heatmap": false,
+      "better": "higher"
+    },
+    {
+      "key": "weapon",
+      "label": "Weapon",
+      "type": "text",
+      "heatmap": false,
+      "better": "higher"
+    },
+    {
+      "key": "unlock_rank",
+      "label": "Unlock Rank",
+      "type": "number",
+      "heatmap": false,
+      "better": "higher"
+    },
+    {
+      "key": "slot",
+      "label": "Slot",
+      "type": "text",
+      "heatmap": false,
+      "better": "higher"
+    },
+    {
+      "key": "class",
+      "label": "Class",
+      "type": "text",
+      "heatmap": false,
+      "better": "higher"
+    },
+    {
+      "key": "max_damage",
+      "label": "Max Damage",
+      "type": "number",
+      "heatmap": true,
+      "better": "higher"
+    },
+    {
+      "key": "min_damage",
+      "label": "Min Damage",
+      "type": "number",
+      "heatmap": true,
+      "better": "higher"
+    },
+    {
+      "key": "headshot_mult",
+      "label": "Headshot Mult",
+      "type": "number",
+      "heatmap": true,
+      "better": "higher"
+    },
+    {
+      "key": "range",
+      "label": "Range",
+      "type": "number",
+      "heatmap": true,
+      "better": "higher"
+    },
+    {
+      "key": "fire_rate",
+      "label": "Fire Rate",
+      "type": "number",
+      "heatmap": true,
+      "better": "higher"
+    },
+    {
+      "key": "muzzle_velocity",
+      "label": "Muzzle Velocity",
+      "type": "number",
+      "heatmap": true,
+      "better": "higher"
+    },
+    {
+      "key": "magazine_size",
+      "label": "Magazine Size",
+      "type": "number",
+      "heatmap": true,
+      "better": "higher"
+    },
+    {
+      "key": "reload_speed",
+      "label": "Reload Speed",
+      "type": "number",
+      "heatmap": true,
+      "better": "lower"
+    },
+    {
+      "key": "walk_speed",
+      "label": "Walk Speed",
+      "type": "number",
+      "heatmap": true,
+      "better": "higher"
+    }
+  ],
+  "weapons": [
+    {
+      "id": "c25",
+      "thumbnail": null,
+      "weapon": "C25",
+      "unlock_rank": 0,
+      "slot": "Primary",
+      "class": "Carbine",
+      "max_damage": 32,
+      "min_damage": 19,
+      "headshot_mult": "1.4x",
+      "range": 130,
+      "fire_rate": 780,
+      "muzzle_velocity": 2930,
+      "magazine_size": 30,
+      "reload_speed": "1.93s",
+      "walk_speed": 14,
+      "notes": ""
+    },
+    {
+      "id": "m4a1",
+      "thumbnail": null,
+      "weapon": "M4A1",
+      "unlock_rank": 0,
+      "slot": "Primary",
+      "class": "Carbine",
+      "max_damage": 35,
+      "min_damage": 19,
+      "headshot_mult": "1.4x",
+      "range": 130,
+      "fire_rate": 780,
+      "muzzle_velocity": 2950,
+      "magazine_size": 30,
+      "reload_speed": "1.89s",
+      "walk_speed": 14,
+      "notes": ""
+    },
+    {
+      "id": "ak12",
+      "thumbnail": null,
+      "weapon": "AK-12",
+      "unlock_rank": 0,
+      "slot": "Primary",
+      "class": "Assault Rifle",
+      "max_damage": 33,
+      "min_damage": 21,
+      "headshot_mult": "1.4x",
+      "range": 160,
+      "fire_rate": 700,
+      "muzzle_velocity": 2950,
+      "magazine_size": 30,
+      "reload_speed": "2.33s",
+      "walk_speed": 14,
+      "notes": ""
+    }
+  ],
+  "sheet_url": ""
+}
