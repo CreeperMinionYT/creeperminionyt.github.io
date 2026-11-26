@@ -1,0 +1,126 @@
+/* ============================================================
+   CREEPERMINION / STATISTICS — independent page styles.
+   All major visual controls are here. Does NOT alter the armory.
+   ============================================================ */
+:root {
+  --stat-bg: #101722;
+  --stat-surface: #182637;
+  --stat-surface-alt: #1d2d41;
+  --stat-border: #30465c;
+  --stat-text: #eef4f9;
+  --stat-muted: #a3b4c6;
+  --stat-purple: #c47dff; /* EDIT HERE: clickable weapon names */
+  --stat-maximum-width: 1600px;
+  --stat-row-height: 54px;
+  --stat-density: 13px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body.stats-page {
+  margin: 0; min-height: 100dvh; overflow-x: hidden; overflow-y: auto;
+  color: var(--stat-text); font: var(--stat-density)/1.5 Arial, Helvetica, sans-serif;
+  background: radial-gradient(ellipse 80% 550px at 50% -160px, #282547 0%, transparent 76%), var(--stat-bg);
+}
+button, select, input { font: inherit; }
+.stats-shell { max-width: var(--stat-maximum-width); padding: 33px 28px 80px; margin: 0 auto; }
+.stats-masthead { display: flex; align-items: flex-end; gap: 30px; border-bottom: 1px solid var(--stat-border); padding: 4px 0 27px 66px; }
+.stats-wordmark { font-size: clamp(16px, 2.1vw, 28px); font-weight: 900; letter-spacing: .045em; white-space: nowrap; color: var(--stat-text); text-decoration: none; }
+.stats-wordmark span { color: var(--stat-purple); }
+.stats-heading { border-left: 1px solid var(--stat-border); padding-left: 25px; }
+.stats-eyebrow { font-size: 10px; letter-spacing: .2em; font-weight: 800; color: var(--stat-purple); }
+.stats-heading h1 { font-size: clamp(24px, 3vw, 40px); margin: 2px 0 0; line-height: 1.12; }
+.stats-heading p { color: var(--stat-muted); margin: 8px 0 0; font-size: 13px; }
+.stats-tools { margin: 24px 0 18px; display: grid; grid-template-columns: minmax(180px,2fr) repeat(3,minmax(136px,1fr)); gap: 12px; }
+.stats-control { display: grid; gap: 7px; min-width: 0; }
+.stats-control > span { color: var(--stat-muted); letter-spacing: .13em; font-weight: 800; font-size: 10px; }
+.stats-control select, .stats-control input {
+  appearance: auto; width: 100%; min-width: 0; height: 43px; border: 1px solid var(--stat-border);
+  border-radius: 3px; outline-offset: 2px; color: var(--stat-text); background: #182536; padding: 8px 12px;
+}
+.stats-control select:focus-visible, .stats-control input:focus-visible { outline: 2px solid var(--stat-purple); }
+.stats-legend { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 0 13px; color: var(--stat-muted); font-size: 12px; }
+#stats-count { font-weight: 700; color: var(--stat-text); }
+.stats-key { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.stats-key-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-left: 10px; }
+.stats-key-swatch.good { background: #237454; }
+.stats-key-swatch.middle { background: #354253; }
+.stats-key-swatch.bad { background: #80413f; }
+.stats-table-wrap { overflow: auto; max-width: 100%; border: 1px solid var(--stat-border); background: #142032; scrollbar-color: #455b72 #111d2a; }
+.stats-table { border-collapse: separate; border-spacing: 0; width: max(100%, 1350px); font-variant-numeric: tabular-nums; }
+.stats-table th { position: sticky; top: 0; z-index: 4; background: #23364c; color: #e4edf5; border-bottom: 1px solid #52708b; text-align: right; white-space: nowrap; }
+.stats-table td { padding: 9px 12px; text-align: right; border-bottom: 1px solid rgba(150, 176, 198, .12); white-space: nowrap; height: var(--stat-row-height); }
+.stats-table tbody tr:nth-child(even) td { background-color: rgba(255,255,255,.018); }
+.stats-table tbody tr:hover td { background-color: rgba(137,177,210,.10); }
+.stats-table th button { width: 100%; height: 54px; border: 0; padding: 8px 12px; background: transparent; color: inherit; text-align: inherit; font-weight: 800; font-size: 11px; cursor: pointer; white-space: nowrap; }
+.stats-table th button:hover, .stats-table th button:focus-visible { background: rgba(180,202,222,.13); color: #fff; }
+.stats-table th[aria-sort]:not([aria-sort="none"]) { background: #3d4d66; }
+.stats-sort-mark { margin-left: 5px; color: #c89dff; }
+/* Sticky first two columns keep identity visible while scanning wide tables. */
+.stats-table th:nth-child(1), .stats-table td:nth-child(1) { position: sticky; left: 0; min-width: 82px; width: 82px; z-index: 2; text-align: center; background-color: #1d2c3d; }
+.stats-table th:nth-child(2), .stats-table td:nth-child(2) { position: sticky; left: 82px; min-width: 150px; width: 150px; z-index: 2; text-align: left; background-color: #1a293b; box-shadow: 2px 0 0 rgba(155,170,199,.15); }
+.stats-table th:nth-child(1), .stats-table th:nth-child(2) { z-index: 6; background: #23364c; }
+.stats-table th:nth-child(1) button { text-align: center; }
+.stats-table td.stats-number { transition: background-color .1s; }
+.stats-value { display: block; margin: -4px -6px; padding: 6px 8px; border-radius: 2px; color: #f5f8fa; text-align: right; }
+.stats-image { width: 68px; height: 38px; object-fit: contain; display: block; margin: auto; filter: drop-shadow(1px 3px 2px rgba(0,0,0,.65)); }
+.stats-image-fallback { display: inline-grid; place-items: center; width: 68px; height: 35px; color: #63798e; font-size: 21px; }
+/* EDIT HERE: link color/underlining for weapon-name notes popup. */
+.stats-name-link { border: 0; background: none; cursor: pointer; padding: 2px 0; text-align: left; color: var(--stat-purple); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; font-weight: 750; }
+.stats-name-link:hover, .stats-name-link:focus-visible { color: #eed4ff; text-decoration-thickness: 2px; }
+.stats-help, .stats-footnote, .stats-source { font-size: 12px; line-height: 1.55; color: var(--stat-muted); }
+.stats-example-link { color: var(--stat-purple); text-decoration: underline; }
+.stats-source a { color: var(--stat-purple); }
+/* Native modal: keyboard Escape works without custom event plumbing. */
+.stats-dialog { width: min(560px, calc(100vw - 26px)); max-height: min(74dvh, 720px); overflow: auto; padding: 22px; border-radius: 4px; border: 1px solid #607b96; background: #17283b; color: var(--stat-text); box-shadow: 0 20px 70px rgba(0,0,0,.7); }
+.stats-dialog::backdrop { background: rgba(0,0,0,.72); }
+.stats-dialog-top { display: flex; gap: 20px; justify-content: space-between; align-items: start; }
+.stats-dialog-top h2 { font-size: 27px; margin: 5px 0 0; }
+.stats-dialog-close { border: 0; background: transparent; color: #dae6f0; font-size: 29px; cursor: pointer; padding: 0 4px; }
+.stats-dialog-meta { color: var(--stat-muted); font-size: 12px; margin: 8px 0 20px; }
+.stats-dialog-content { white-space: pre-wrap; line-height: 1.75; color: #e1e9f0; border-top: 1px solid var(--stat-border); padding-top: 16px; min-height: 80px; }
+.stats-dialog-content.is-empty { color: var(--stat-muted); font-style: italic; }
+.stats-dialog-links { padding-top: 15px; display: flex; gap: 12px; }
+.stats-dialog-links a { color: var(--stat-purple); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 850px) {
+  .stats-shell { padding: 72px 12px 42px; }
+  .stats-masthead { padding: 0 0 19px; display: block; }
+  .stats-heading { margin-top: 16px; padding-left: 0; border: 0; }
+  .stats-tools { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .stats-search-label { grid-column: 1/-1; }
+}
+@media (max-width: 450px) {
+  .stats-tools { grid-template-columns: 1fr 1fr; }
+  .stats-tools > :last-child { grid-column: 1/-1; }
+  .stats-table-wrap { margin: 0 -12px; }
+}
+
+/* ===== CREEPERMINION TIER RATINGS =====
+   Google Sheet column: Rating (one letter: F, D, C, B, A, or S).
+   This is a subjective rating, independent of the stats heatmap.
+   EDIT COLORS below without touching the weapon database or JavaScript.
+   Impact is a widely installed, chunky tier-list-style system font. */
+.stats-rating-cell { text-align: center !important; min-width: 64px; }
+.stats-tier {
+  display: inline-flex;
+  min-width: 32px;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 9px 3px;
+  border-radius: 3px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: .02em;
+  color: #16171b;
+  background: var(--tier-color);
+  box-shadow: inset 0 1px rgba(255,255,255,.22), 0 2px 6px rgba(0,0,0,.30);
+  white-space: nowrap;
+}
+.stats-tier-s { --tier-color: #f36b6b; } /* S: red */
+.stats-tier-a { --tier-color: #f6a45f; } /* A: orange */
+.stats-tier-b { --tier-color: #f5d55e; } /* B: yellow */
+.stats-tier-c { --tier-color: #78cd89; } /* C: green */
+.stats-tier-d { --tier-color: #6fb4ee; } /* D: blue */
+.stats-tier-f { --tier-color: #b68bf2; } /* F: purple */
+.stats-unrated { color: var(--stat-muted); }
