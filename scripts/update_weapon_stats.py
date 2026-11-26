@@ -7,7 +7,7 @@ Usage after publishing just the weapon-data tab of Google Sheets to the web:
 Or import an exported CSV locally:
     python scripts/update_weapon_stats.py --csv exported.csv
 
-All 14 required columns are retained. Optional extra columns: Rating (1–3), Notes, Weapon ID.
+All 14 required columns are retained. Optional extra columns: Rating (F,D,C,B,A,S), Notes, Weapon ID.
 Never overwrite data with inferred Phantom Forces values.
 """
 from __future__ import annotations
@@ -20,7 +20,7 @@ OUTPUT = ROOT / 'content' / 'weapon-stats.json'
 FIELDS = [
     ('Thumbnail', 'thumbnail', 'image', False),
     ('Weapon', 'weapon', 'text', False),
-    ('Rating', 'rating', 'number', False),  # OPTIONAL: subjective 1–3-star rating
+    ('Rating', 'rating', 'tier', False),  # OPTIONAL: subjective F/D/C/B/A/S grade
     ('Unlock Rank', 'unlock_rank', 'number', False),
     ('Slot', 'slot', 'text', False),
     ('Class', 'class', 'text', False),
@@ -65,10 +65,11 @@ def read_csv(text):
             source_column = cols.get(header.lower())  # Rating may be absent initially.
             val = (row.get(source_column) or '').strip() if source_column else ''
             if key == 'rating':
-                # A blank rating is OK, but fractional/out-of-range ratings are errors.
-                if val and val not in {'1', '2', '3'}:
-                    raise ValueError(f'Invalid Rating {val!r} for {name}. Use only 1, 2 or 3.')
-                item[key] = int(val) if val else None
+                # Grade values use a six-level tier system, not the old 1-3 stars.
+                grade = val.upper()
+                if grade and grade not in {'F', 'D', 'C', 'B', 'A', 'S'}:
+                    raise ValueError(f'Invalid Rating {val!r} for {name}. Use F, D, C, B, A or S (or leave blank).')
+                item[key] = grade or None
             elif not val:
                 item[key] = None
             elif kind == 'number':
@@ -111,7 +112,7 @@ def main():
         'source': 'Published Google Sheet' if args.url else 'Exported spreadsheet CSV',
         'sheet_url': args.sheet_link or previous_link,
         'columns': [
-            {'key': key, 'label': ('Unlock' if key == 'unlock_rank' else header), 'type': kind,
+            {'key': key, 'label': ('Unlock' if key == 'unlock_rank' else 'Tier' if key == 'rating' else header), 'type': kind,
              'heatmap': heatmap, 'better': ('lower' if key in LOWER_BETTER else 'higher')}
             for header, key, kind, heatmap in FIELDS
         ],
