@@ -29,6 +29,11 @@
     const num = Number(String(value).replaceAll(',', '').match(/^\s*([-+]?\d+(?:\.\d+)?)/)?.[1]);
     return Number.isFinite(num) ? num : null;
   };
+  // Tier ratings are editorial grades, not numerical stats. Higher is better.
+  // Use an explicit rank instead of alphabetical sorting (S > A > ... > F).
+  const tierScore = value => ({ F: 1, D: 2, C: 3, B: 4, A: 5, S: 6 })[
+    String(value ?? '').trim().toUpperCase()
+  ] ?? null;
   const display = val => val === null || val === undefined || val === '' ? '—' : String(val);
   const create = (tag, className, text) => {
     const el = document.createElement(tag);
@@ -46,12 +51,12 @@
   function sortRows(rows) {
     const key = state.sortKey;
     const col = colByKey(key);
-    const isNum = col?.type === 'number';
+    const isNum = col?.type === 'number' || key === 'rating'; // Tiers sort using their grade rank.
     const multiplier = state.descending ? -1 : 1;
     return [...rows].sort((a, b) => {
       const a0 = a[key], b0 = b[key];
-      const av = isNum ? numeric(a0) : (a0 == null ? null : String(a0));
-      const bv = isNum ? numeric(b0) : (b0 == null ? null : String(b0));
+      const av = key === 'rating' ? tierScore(a0) : (isNum ? numeric(a0) : (a0 == null ? null : String(a0)));
+      const bv = key === 'rating' ? tierScore(b0) : (isNum ? numeric(b0) : (b0 == null ? null : String(b0)));
       if (av == null && bv == null) return a.weapon.localeCompare(b.weapon);
       if (av == null) return 1;
       if (bv == null) return -1;
@@ -117,7 +122,7 @@
       button.append(document.createTextNode(col.label));
       if (col.key === state.sortKey) button.append(create('span','stats-sort-mark',state.descending?'▼':'▲'));
       button.addEventListener('click', () => {
-        state.descending = state.sortKey === col.key ? !state.descending : (col.type === 'number');
+        state.descending = state.sortKey === col.key ? !state.descending : (col.type === 'number' || col.key === 'rating');
         state.sortKey = col.key;
         render();
       });
@@ -150,16 +155,16 @@
             td.append(img);
           } else td.append(create('span','stats-image-fallback','◇'));
         } else if (col.key === 'rating') {
-          // Independent subjective rating. Gold stars, not the class-relative heatmap.
-          // Numeric sorting works because this column's type is 'number'.
-          const rating = numeric(val);
+          // Subjective F-S tier (no heatmap). Each grade has its own color.
+          const grade = String(val ?? '').trim().toUpperCase();
           td.className = 'stats-rating-cell';
-          if (Number.isInteger(rating) && rating >= 1 && rating <= 3) {
-            const stars = create('span', 'stats-star-rating', '★'.repeat(rating));
-            stars.title = `${rating} out of 3 stars`;
-            stars.setAttribute('aria-label', stars.title);
-            td.append(stars);
+          if (tierScore(grade) !== null) {
+            const badge = create('span', `stats-tier stats-tier-${grade.toLowerCase()}`, grade);
+            badge.title = `${grade}-tier weapon`;
+            badge.setAttribute('aria-label', badge.title);
+            td.append(badge);
           } else {
+            // Blank / not-yet-imported grades are not assigned a tier.
             td.append(create('span', 'stats-unrated', '—'));
           }
         } else if (col.type === 'number') {
@@ -189,12 +194,12 @@
       const data = await response.json();
       // Display a compact label without requiring a Google Sheet header rename.
       state.columns = (data.columns || []).map(col =>
-        col.key === 'unlock_rank' ? { ...col, label: 'Unlock' } : col
+        col.key === 'unlock_rank' ? { ...col, label: 'Unlock' } :
+        col.key === 'rating' ? { ...col, label: 'Tier', type: 'tier', heatmap: false } : col
       );
-      // Show the Rating column even while waiting for the first sync of new data.
-      // Once the importer has emitted it, reuse the imported column definition.
+      // Show Tier even while waiting for the first sync of the Rating column.
       if (!state.columns.some(col => col.key === 'rating')) {
-        const ratingColumn = { key: 'rating', label: 'Rating', type: 'number', heatmap: false, better: 'higher' };
+        const ratingColumn = { key: 'rating', label: 'Tier', type: 'tier', heatmap: false, better: 'higher' };
         const weaponIndex = state.columns.findIndex(col => col.key === 'weapon');
         state.columns.splice(weaponIndex + 1, 0, ratingColumn);
       }

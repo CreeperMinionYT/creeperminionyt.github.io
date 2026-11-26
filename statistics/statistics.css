@@ -94,18 +94,33 @@ button, select, input { font: inherit; }
   .stats-table-wrap { margin: 0 -12px; }
 }
 
-/* ===== CREEPERMINION STAR RATINGS =====
-   The Google Sheet uses a numeric Rating column (1, 2 or 3).
-   This is subjective editorial judgment, so it does not use the stats heatmap.
-   EDIT HERE to change star color and size. */
-.stats-rating-cell { text-align: center !important; min-width: 74px; }
-.stats-star-rating {
-  display: inline-block;
-  color: #f4c568;             /* Warm gold */
-  font-size: 16px;
-  letter-spacing: 1px;
+/* ===== CREEPERMINION TIER RATINGS =====
+   Google Sheet column: Rating (one letter: F, D, C, B, A, or S).
+   This is a subjective rating, independent of the stats heatmap.
+   EDIT COLORS below without touching the weapon database or JavaScript.
+   Impact is a widely installed, chunky tier-list-style system font. */
+.stats-rating-cell { text-align: center !important; min-width: 64px; }
+.stats-tier {
+  display: inline-flex;
+  min-width: 32px;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 9px 3px;
+  border-radius: 3px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
   line-height: 1;
+  letter-spacing: .02em;
+  color: #16171b;
+  background: var(--tier-color);
+  box-shadow: inset 0 1px rgba(255,255,255,.22), 0 2px 6px rgba(0,0,0,.30);
   white-space: nowrap;
-  text-shadow: 0 1px 4px rgba(0,0,0,.4);
 }
+.stats-tier-s { --tier-color: #f36b6b; } /* S: red */
+.stats-tier-a { --tier-color: #f6a45f; } /* A: orange */
+.stats-tier-b { --tier-color: #f5d55e; } /* B: yellow */
+.stats-tier-c { --tier-color: #78cd89; } /* C: green */
+.stats-tier-d { --tier-color: #6fb4ee; } /* D: blue */
+.stats-tier-f { --tier-color: #b68bf2; } /* F: purple */
 .stats-unrated { color: var(--stat-muted); }
