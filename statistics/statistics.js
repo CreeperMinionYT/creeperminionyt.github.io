@@ -149,6 +149,19 @@
             img.loading='lazy'; img.addEventListener('error',()=>img.replaceWith(create('span','stats-image-fallback','◇')));
             td.append(img);
           } else td.append(create('span','stats-image-fallback','◇'));
+        } else if (col.key === 'rating') {
+          // Independent subjective rating. Gold stars, not the class-relative heatmap.
+          // Numeric sorting works because this column's type is 'number'.
+          const rating = numeric(val);
+          td.className = 'stats-rating-cell';
+          if (Number.isInteger(rating) && rating >= 1 && rating <= 3) {
+            const stars = create('span', 'stats-star-rating', '★'.repeat(rating));
+            stars.title = `${rating} out of 3 stars`;
+            stars.setAttribute('aria-label', stars.title);
+            td.append(stars);
+          } else {
+            td.append(create('span', 'stats-unrated', '—'));
+          }
         } else if (col.type === 'number') {
           td.className='stats-number';
           const span = create('span','stats-value',display(val)); heatmap(row,col,span); td.append(span);
@@ -174,7 +187,17 @@
       const response = await fetch('/content/weapon-stats.json', {cache:'no-cache'});
       if (!response.ok) throw new Error(`Database HTTP ${response.status}`);
       const data = await response.json();
-      state.columns = data.columns || [];
+      // Display a compact label without requiring a Google Sheet header rename.
+      state.columns = (data.columns || []).map(col =>
+        col.key === 'unlock_rank' ? { ...col, label: 'Unlock' } : col
+      );
+      // Show the Rating column even while waiting for the first sync of new data.
+      // Once the importer has emitted it, reuse the imported column definition.
+      if (!state.columns.some(col => col.key === 'rating')) {
+        const ratingColumn = { key: 'rating', label: 'Rating', type: 'number', heatmap: false, better: 'higher' };
+        const weaponIndex = state.columns.findIndex(col => col.key === 'weapon');
+        state.columns.splice(weaponIndex + 1, 0, ratingColumn);
+      }
       state.rows = data.weapons || [];
       if (!state.columns.length || !state.rows.length) throw new Error('No columns/weapon rows in master database');
       try {
