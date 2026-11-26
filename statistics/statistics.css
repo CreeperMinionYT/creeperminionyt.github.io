@@ -124,3 +124,5 @@ button, select, input { font: inherit; }
 .stats-tier-d { --tier-color: #6fb4ee; } /* D: blue */
 .stats-tier-f { --tier-color: #b68bf2; } /* F: purple */
 .stats-unrated { color: var(--stat-muted); }
+
+thead th { text-align: center !important; }
