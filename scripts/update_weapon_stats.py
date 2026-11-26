@@ -7,7 +7,7 @@ Usage after publishing just the weapon-data tab of Google Sheets to the web:
 Or import an exported CSV locally:
     python scripts/update_weapon_stats.py --csv exported.csv
 
-All 14 source columns are retained. Optional extra columns: Notes, Weapon ID.
+All 14 required columns are retained. Optional extra columns: Rating (1–3), Notes, Weapon ID.
 Never overwrite data with inferred Phantom Forces values.
 """
 from __future__ import annotations
@@ -20,6 +20,7 @@ OUTPUT = ROOT / 'content' / 'weapon-stats.json'
 FIELDS = [
     ('Thumbnail', 'thumbnail', 'image', False),
     ('Weapon', 'weapon', 'text', False),
+    ('Rating', 'rating', 'number', False),  # OPTIONAL: subjective 1–3-star rating
     ('Unlock Rank', 'unlock_rank', 'number', False),
     ('Slot', 'slot', 'text', False),
     ('Class', 'class', 'text', False),
@@ -35,6 +36,7 @@ FIELDS = [
 ]
 # Lower reload times are generally advantageous; rank is acquisition, not performance.
 LOWER_BETTER = {'reload_speed'}
+OPTIONAL_FIELDS = {'Rating'}  # Keep sync working before the Rating column is added.
 HEADER_ALIASES = {'headshot mult': 'Headshot Mult', 'range': 'Range',
                   'thumbnail': 'Thumbnail', 'weapon id': 'Weapon ID'}
 
@@ -46,7 +48,7 @@ def read_csv(text):
     if not reader.fieldnames:
         raise ValueError('No header row found')
     cols = {name.strip().lower(): name for name in reader.fieldnames if name}
-    missing = [header for header, _, _, _ in FIELDS if header.lower() not in cols]
+    missing = [header for header, _, _, _ in FIELDS if header not in OPTIONAL_FIELDS and header.lower() not in cols]
     if missing:
         raise ValueError('Missing required columns: ' + ', '.join(missing))
     output = []
@@ -60,8 +62,14 @@ def read_csv(text):
         seen.add(id_)
         item = {'id': id_}
         for header, key, kind, _ in FIELDS:
-            val = (row.get(cols[header.lower()]) or '').strip()
-            if not val:
+            source_column = cols.get(header.lower())  # Rating may be absent initially.
+            val = (row.get(source_column) or '').strip() if source_column else ''
+            if key == 'rating':
+                # A blank rating is OK, but fractional/out-of-range ratings are errors.
+                if val and val not in {'1', '2', '3'}:
+                    raise ValueError(f'Invalid Rating {val!r} for {name}. Use only 1, 2 or 3.')
+                item[key] = int(val) if val else None
+            elif not val:
                 item[key] = None
             elif kind == 'number':
                 clean = val.replace(',', '')
@@ -103,7 +111,7 @@ def main():
         'source': 'Published Google Sheet' if args.url else 'Exported spreadsheet CSV',
         'sheet_url': args.sheet_link or previous_link,
         'columns': [
-            {'key': key, 'label': header, 'type': kind,
+            {'key': key, 'label': ('Unlock' if key == 'unlock_rank' else header), 'type': kind,
              'heatmap': heatmap, 'better': ('lower' if key in LOWER_BETTER else 'higher')}
             for header, key, kind, heatmap in FIELDS
         ],
