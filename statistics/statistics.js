@@ -167,7 +167,17 @@
             // Blank / not-yet-imported grades are not assigned a tier.
             td.append(create('span', 'stats-unrated', '—'));
           }
-        } else if (col.type === 'number') {
+        } else if (col.key === 'class') {
+           const name = String(val ?? '').trim();
+           td.className = 'stats-class-cell';
+           if (name) {
+              const slug = name.toLowerCase()
+                  .replace(/[^a-z0-9]+/g, '-')
+                  .replace(/^-|-$/g, '');
+              td.append(create('span',
+               `stats-class-badge stats-class-${slug}`, name));
+  } else td.textContent = '—';
+} else if (col.type === 'number') {
           td.className='stats-number';
           const span = create('span','stats-value',display(val)); heatmap(row,col,span); td.append(span);
         } else td.textContent=display(val);
