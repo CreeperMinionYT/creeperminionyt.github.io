@@ -113,7 +113,7 @@
   "weapons": [
     {
       "id": "ak12",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak12.webp",
       "weapon": "AK-12",
       "rating": "B",
       "unlock_rank": 0,
@@ -132,7 +132,7 @@
     },
     {
       "id": "vz806",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/vz806.webp",
       "weapon": "VZ. 806",
       "rating": "A",
       "unlock_rank": 0,
@@ -151,7 +151,7 @@
     },
     {
       "id": "msbsb",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/msbsb.webp",
       "weapon": "MSBS-B",
       "rating": "B",
       "unlock_rank": 5,
@@ -170,7 +170,7 @@
     },
     {
       "id": "an94",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/an94.webp",
       "weapon": "AN-94",
       "rating": "C",
       "unlock_rank": 10,
@@ -189,7 +189,7 @@
     },
     {
       "id": "asval",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/asval.webp",
       "weapon": "AS VAL",
       "rating": "C",
       "unlock_rank": 15,
@@ -208,7 +208,7 @@
     },
     {
       "id": "mk16socom",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mk16socom.webp",
       "weapon": "MK16 SOCOM",
       "rating": "C",
       "unlock_rank": 16,
@@ -227,7 +227,7 @@
     },
     {
       "id": "uara1",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/uara1.webp",
       "weapon": "UAR A1",
       "rating": "D",
       "unlock_rank": 20,
@@ -246,7 +246,7 @@
     },
     {
       "id": "m16a4",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m16a4.webp",
       "weapon": "M16A4",
       "rating": "A",
       "unlock_rank": 22,
@@ -265,7 +265,7 @@
     },
     {
       "id": "ar36",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ar36.webp",
       "weapon": "AR36",
       "rating": "S",
       "unlock_rank": 25,
@@ -284,7 +284,7 @@
     },
     {
       "id": "m16a1",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m16a1.webp",
       "weapon": "M16A1",
       "rating": "A",
       "unlock_rank": 28,
@@ -303,7 +303,7 @@
     },
     {
       "id": "m16a3",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m16a3.webp",
       "weapon": "M16A3",
       "rating": "B",
       "unlock_rank": 31,
@@ -322,7 +322,7 @@
     },
     {
       "id": "type20",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/type20.webp",
       "weapon": "TYPE 20",
       "rating": "A",
       "unlock_rank": 35,
@@ -341,7 +341,7 @@
     },
     {
       "id": "f90mbr",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/f90mbr.webp",
       "weapon": "F90 MBR",
       "rating": "A",
       "unlock_rank": 39,
@@ -360,7 +360,7 @@
     },
     {
       "id": "k2",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/k2.webp",
       "weapon": "K2",
       "rating": "A",
       "unlock_rank": 42,
@@ -379,7 +379,7 @@
     },
     {
       "id": "famasg2",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/famasg2.webp",
       "weapon": "FAMAS G2",
       "rating": "D",
       "unlock_rank": 45,
@@ -398,7 +398,7 @@
     },
     {
       "id": "ak47",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak47.webp",
       "weapon": "AK-47",
       "rating": "A",
       "unlock_rank": 47,
@@ -417,7 +417,7 @@
     },
     {
       "id": "l85a2",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/l85a2.webp",
       "weapon": "L85A2",
       "rating": "B",
       "unlock_rank": 55,
@@ -436,7 +436,7 @@
     },
     {
       "id": "m416",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m416.webp",
       "weapon": "M416",
       "rating": "B",
       "unlock_rank": 64,
@@ -455,7 +455,7 @@
     },
     {
       "id": "ak74",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak74.webp",
       "weapon": "AK-74",
       "rating": "B",
       "unlock_rank": 74,
@@ -474,7 +474,7 @@
     },
     {
       "id": "famasf1",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/famasf1.webp",
       "weapon": "FAMAS F1",
       "rating": "A",
       "unlock_rank": 83,
@@ -493,7 +493,7 @@
     },
     {
       "id": "qbz95",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/qbz95.webp",
       "weapon": "QBZ-95",
       "rating": "C",
       "unlock_rank": 90,
@@ -512,7 +512,7 @@
     },
     {
       "id": "akm",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/akm.webp",
       "weapon": "AKM",
       "rating": "A",
       "unlock_rank": 94,
@@ -531,7 +531,7 @@
     },
     {
       "id": "qbz97a",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/qbz97a.webp",
       "weapon": "QBZ-97A",
       "rating": "D",
       "unlock_rank": 97,
@@ -550,7 +550,7 @@
     },
     {
       "id": "ak103",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak103.webp",
       "weapon": "AK-103",
       "rating": "A",
       "unlock_rank": 103,
@@ -569,7 +569,7 @@
     },
     {
       "id": "tar21",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/tar21.webp",
       "weapon": "TAR-21",
       "rating": "B",
       "unlock_rank": 111,
@@ -588,7 +588,7 @@
     },
     {
       "id": "type88",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/type88.webp",
       "weapon": "TYPE 88",
       "rating": "A",
       "unlock_rank": 122,
@@ -607,7 +607,7 @@
     },
     {
       "id": "m231",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m231.webp",
       "weapon": "M231",
       "rating": "A",
       "unlock_rank": 123,
@@ -626,7 +626,7 @@
     },
     {
       "id": "c7a2",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/c7a2.webp",
       "weapon": "C7A2",
       "rating": "A",
       "unlock_rank": 128,
@@ -645,7 +645,7 @@
     },
     {
       "id": "ak12m",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak12m.webp",
       "weapon": "AK-12M",
       "rating": "C",
       "unlock_rank": 134,
@@ -664,7 +664,7 @@
     },
     {
       "id": "mac15",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mac15.webp",
       "weapon": "MAC-15",
       "rating": "B",
       "unlock_rank": 141,
@@ -683,7 +683,7 @@
     },
     {
       "id": "stg44",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/stg44.webp",
       "weapon": "STG-44",
       "rating": "A",
       "unlock_rank": 144,
@@ -702,7 +702,7 @@
     },
     {
       "id": "ia2ar",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ia2ar.webp",
       "weapon": "IA2 AR",
       "rating": "B",
       "unlock_rank": 148,
@@ -721,7 +721,7 @@
     },
     {
       "id": "vz808",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/vz808.webp",
       "weapon": "VZ. 808",
       "rating": "C",
       "unlock_rank": 153,
@@ -740,7 +740,7 @@
     },
     {
       "id": "l85a3",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/l85a3.webp",
       "weapon": "L85A3",
       "rating": "C",
       "unlock_rank": 158,
@@ -759,7 +759,7 @@
     },
     {
       "id": "ak15",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak15.webp",
       "weapon": "AK-15",
       "rating": "S",
       "unlock_rank": 163,
@@ -778,7 +778,7 @@
     },
     {
       "id": "spearlt",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/spearlt.webp",
       "weapon": "SPEAR LT",
       "rating": "B",
       "unlock_rank": 167,
@@ -797,7 +797,7 @@
     },
     {
       "id": "vhsd2",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/vhsd2.webp",
       "weapon": "VHS-D2",
       "rating": "C",
       "unlock_rank": 172,
@@ -816,7 +816,7 @@
     },
     {
       "id": "ak19",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak19.webp",
       "weapon": "AK-19",
       "rating": "A",
       "unlock_rank": 178,
@@ -835,7 +835,7 @@
     },
     {
       "id": "m38a7",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m38a7.webp",
       "weapon": "M38A7",
       "rating": "D",
       "unlock_rank": 183,
@@ -854,7 +854,7 @@
     },
     {
       "id": "aek971",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/aek971.webp",
       "weapon": "AEK-971",
       "rating": "B",
       "unlock_rank": 197,
@@ -873,7 +873,7 @@
     },
     {
       "id": "m16a2e2acr",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m16a2e2acr.webp",
       "weapon": "M16A2E2 ACR",
       "rating": "D",
       "unlock_rank": 211,
@@ -911,7 +911,7 @@
     },
     {
       "id": "m14",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m14.webp",
       "weapon": "M14",
       "rating": "C",
       "unlock_rank": 2,
@@ -930,7 +930,7 @@
     },
     {
       "id": "neowulfecr",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/neowulfecr.webp",
       "weapon": "NEOWULF ECR",
       "rating": "A",
       "unlock_rank": 21,
@@ -949,7 +949,7 @@
     },
     {
       "id": "mk17socom",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mk17socom.webp",
       "weapon": "MK17 SOCOM",
       "rating": "A",
       "unlock_rank": 30,
@@ -968,7 +968,7 @@
     },
     {
       "id": "stg59h",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/stg59h.webp",
       "weapon": "STG-59H",
       "rating": "S",
       "unlock_rank": 59,
@@ -987,7 +987,7 @@
     },
     {
       "id": "gustav66",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/gustav66.webp",
       "weapon": "GUSTAV 66",
       "rating": "B",
       "unlock_rank": 76,
@@ -1006,7 +1006,7 @@
     },
     {
       "id": "m417a2",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m417a2.webp",
       "weapon": "M417A2",
       "rating": "C",
       "unlock_rank": 78,
@@ -1025,7 +1025,7 @@
     },
     {
       "id": "fal5063para",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/fal5063para.webp",
       "weapon": "FAL 50.63 PARA",
       "rating": "B",
       "unlock_rank": 89,
@@ -1044,7 +1044,7 @@
     },
     {
       "id": "henry4570",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/henry4570.webp",
       "weapon": "HENRY 45-70",
       "rating": "B",
       "unlock_rank": 96,
@@ -1063,7 +1063,7 @@
     },
     {
       "id": "fal5000",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/fal5000.webp",
       "weapon": "FAL 50.00",
       "rating": "A",
       "unlock_rank": 107,
@@ -1082,7 +1082,7 @@
     },
     {
       "id": "vz806br",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/vz806br.webp",
       "weapon": "VZ. 806 BR",
       "rating": "C",
       "unlock_rank": 129,
@@ -1101,7 +1101,7 @@
     },
     {
       "id": "ak308",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak308.webp",
       "weapon": "AK-308",
       "rating": "C",
       "unlock_rank": 142,
@@ -1120,7 +1120,7 @@
     },
     {
       "id": "ia2br",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ia2br.webp",
       "weapon": "IA2 BR",
       "rating": "A",
       "unlock_rank": 154,
@@ -1139,7 +1139,7 @@
     },
     {
       "id": "m7ngsw",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m7ngsw.webp",
       "weapon": "M7 NGSW",
       "rating": "C",
       "unlock_rank": 165,
@@ -1158,7 +1158,7 @@
     },
     {
       "id": "hcar",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/hcar.webp",
       "weapon": "HCAR",
       "rating": "S",
       "unlock_rank": 181,
@@ -1177,7 +1177,7 @@
     },
     {
       "id": "doombox",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/doombox.webp",
       "weapon": "DOOMBOX",
       "rating": "A",
       "unlock_rank": 193,
@@ -1196,7 +1196,7 @@
     },
     {
       "id": "shak12",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/shak12.webp",
       "weapon": "SHAK-12",
       "rating": "B",
       "unlock_rank": 212,
@@ -1215,7 +1215,7 @@
     },
     {
       "id": "mk17ultralight",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mk17ultralight.webp",
       "weapon": "MK17 ULTRALIGHT",
       "rating": "B",
       "unlock_rank": 218,
@@ -1234,7 +1234,7 @@
     },
     {
       "id": "rm277",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/rm277.webp",
       "weapon": "RM 277",
       "rating": "B",
       "unlock_rank": 277,
@@ -1253,7 +1253,7 @@
     },
     {
       "id": "c25",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/c25.webp",
       "weapon": "C25",
       "rating": "A",
       "unlock_rank": 0,
@@ -1272,7 +1272,7 @@
     },
     {
       "id": "m4a1",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m4a1.webp",
       "weapon": "M4A1",
       "rating": "B",
       "unlock_rank": 0,
@@ -1291,7 +1291,7 @@
     },
     {
       "id": "ar36k",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ar36k.webp",
       "weapon": "AR36K",
       "rating": "B",
       "unlock_rank": 6,
@@ -1310,7 +1310,7 @@
     },
     {
       "id": "m4",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m4.webp",
       "weapon": "M4",
       "rating": "S",
       "unlock_rank": 14,
@@ -1329,7 +1329,7 @@
     },
     {
       "id": "msbsc",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/msbsc.webp",
       "weapon": "MSBS-C",
       "rating": "A",
       "unlock_rank": 22,
@@ -1348,7 +1348,7 @@
     },
     {
       "id": "l22a2",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/l22a2.webp",
       "weapon": "L22A2",
       "rating": "C",
       "unlock_rank": 28,
@@ -1367,7 +1367,7 @@
     },
     {
       "id": "ak12u",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak12u.webp",
       "weapon": "AK-12U",
       "rating": "A",
       "unlock_rank": 35,
@@ -1386,7 +1386,7 @@
     },
     {
       "id": "groza1",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/groza1.webp",
       "weapon": "GROZA-1",
       "rating": "S",
       "unlock_rank": 42,
@@ -1405,7 +1405,7 @@
     },
     {
       "id": "ots126",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ots126.webp",
       "weapon": "OTS-126",
       "rating": "S",
       "unlock_rank": 48,
@@ -1424,7 +1424,7 @@
     },
     {
       "id": "ak9",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak9.webp",
       "weapon": "AK-9",
       "rating": "A",
       "unlock_rank": 51,
@@ -1443,7 +1443,7 @@
     },
     {
       "id": "uara3",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/uara3.webp",
       "weapon": "UAR A3",
       "rating": "S",
       "unlock_rank": 52,
@@ -1462,7 +1462,7 @@
     },
     {
       "id": "pdc45",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/pdc45.webp",
       "weapon": "PDC-45",
       "rating": "D",
       "unlock_rank": 58,
@@ -1481,7 +1481,7 @@
     },
     {
       "id": "k1a",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/k1a.webp",
       "weapon": "K1A",
       "rating": "B",
       "unlock_rank": 63,
@@ -1500,7 +1500,7 @@
     },
     {
       "id": "sr3m",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/sr3m.webp",
       "weapon": "SR-3M",
       "rating": "A",
       "unlock_rank": 69,
@@ -1519,7 +1519,7 @@
     },
     {
       "id": "mk16socomsc",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mk16socomsc.webp",
       "weapon": "MK16 SOCOM SC",
       "rating": "B",
       "unlock_rank": 75,
@@ -1538,7 +1538,7 @@
     },
     {
       "id": "groza4",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/groza4.webp",
       "weapon": "GROZA-4",
       "rating": "A",
       "unlock_rank": 79,
@@ -1557,7 +1557,7 @@
     },
     {
       "id": "stg89c",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/stg89c.webp",
       "weapon": "STG-89C",
       "rating": "B",
       "unlock_rank": 86,
@@ -1576,7 +1576,7 @@
     },
     {
       "id": "1858carbine",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/1858carbine.webp",
       "weapon": "1858 CARBINE",
       "rating": "A",
       "unlock_rank": 93,
@@ -1595,7 +1595,7 @@
     },
     {
       "id": "sa58osw",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/sa58osw.webp",
       "weapon": "SA58 OSW",
       "rating": "C",
       "unlock_rank": 98,
@@ -1614,7 +1614,7 @@
     },
     {
       "id": "ak105",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak105.webp",
       "weapon": "AK-105",
       "rating": "A",
       "unlock_rank": 105,
@@ -1633,7 +1633,7 @@
     },
     {
       "id": "jury",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/jury.webp",
       "weapon": "JURY",
       "rating": "D",
       "unlock_rank": 114,
@@ -1652,7 +1652,7 @@
     },
     {
       "id": "c8a3",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/c8a3.webp",
       "weapon": "C8A3",
       "rating": "B",
       "unlock_rank": 119,
@@ -1671,7 +1671,7 @@
     },
     {
       "id": "rsquared",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/rsquared.webp",
       "weapon": "R SQUARED",
       "rating": "C",
       "unlock_rank": 125,
@@ -1690,7 +1690,7 @@
     },
     {
       "id": "gyrojetcarbine",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/gyrojetcarbine.webp",
       "weapon": "GYROJET CARBINE",
       "rating": "B",
       "unlock_rank": 127,
@@ -1709,7 +1709,7 @@
     },
     {
       "id": "x95r",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/x95r.webp",
       "weapon": "X95R",
       "rating": "C",
       "unlock_rank": 130,
@@ -1728,7 +1728,7 @@
     },
     {
       "id": "saltyweasel",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/saltyweasel.webp",
       "weapon": "SALTY WEASEL",
       "rating": "B",
       "unlock_rank": 137,
@@ -1747,7 +1747,7 @@
     },
     {
       "id": "m337",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m337.webp",
       "weapon": "M337",
       "rating": "A",
       "unlock_rank": 147,
@@ -1766,7 +1766,7 @@
     },
     {
       "id": "mg89b",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mg89b.webp",
       "weapon": "MG89B",
       "rating": "B",
       "unlock_rank": 157,
@@ -1785,7 +1785,7 @@
     },
     {
       "id": "virtus",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/virtus.webp",
       "weapon": "VIRTUS",
       "rating": "A",
       "unlock_rank": 168,
@@ -1804,7 +1804,7 @@
     },
     {
       "id": "minifix",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/minifix.webp",
       "weapon": "MINI FIX",
       "rating": "C",
       "unlock_rank": 175,
@@ -1823,7 +1823,7 @@
     },
     {
       "id": "ef88",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ef88.webp",
       "weapon": "EF88",
       "rating": "C",
       "unlock_rank": 188,
@@ -1842,7 +1842,7 @@
     },
     {
       "id": "aek973s",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/aek973s.webp",
       "weapon": "AEK-973S",
       "rating": "S",
       "unlock_rank": 192,
@@ -1861,7 +1861,7 @@
     },
     {
       "id": "colacannon",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/colacannon.webp",
       "weapon": "COLA CANNON",
       "rating": "D",
       "unlock_rank": 222,
@@ -1880,7 +1880,7 @@
     },
     {
       "id": "pkpbychok",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/pkpbychok.webp",
       "weapon": "PKP BYCHOK",
       "rating": "B",
       "unlock_rank": 254,
@@ -1899,7 +1899,7 @@
     },
     {
       "id": "mts569",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mts569.webp",
       "weapon": "MTS-569",
       "rating": "C",
       "unlock_rank": 269,
@@ -1918,7 +1918,7 @@
     },
     {
       "id": "ksg12",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ksg12.webp",
       "weapon": "KSG-12",
       "rating": "B",
       "unlock_rank": 1,
@@ -1937,7 +1937,7 @@
     },
     {
       "id": "model870",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/model870.webp",
       "weapon": "MODEL 870",
       "rating": "S",
       "unlock_rank": 11,
@@ -1956,7 +1956,7 @@
     },
     {
       "id": "ak1276",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ak1276.webp",
       "weapon": "AK-12/76",
       "rating": "A",
       "unlock_rank": 24,
@@ -1975,7 +1975,7 @@
     },
     {
       "id": "m3712g",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m3712g.webp",
       "weapon": "M37 12G",
       "rating": "S",
       "unlock_rank": 37,
@@ -1994,7 +1994,7 @@
     },
     {
       "id": "terminator12g",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/terminator12g.webp",
       "weapon": "TERMINATOR 12G",
       "rating": "D",
       "unlock_rank": 50,
@@ -2013,7 +2013,7 @@
     },
     {
       "id": "ks23m",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ks23m.webp",
       "weapon": "KS-23M",
       "rating": "C",
       "unlock_rank": 56,
@@ -2032,7 +2032,7 @@
     },
     {
       "id": "saiga12",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/saiga12.webp",
       "weapon": "SAIGA-12",
       "rating": "A",
       "unlock_rank": 63,
@@ -2051,7 +2051,7 @@
     },
     {
       "id": "stevensdb",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/stevensdb.webp",
       "weapon": "STEVENS DB",
       "rating": "C",
       "unlock_rank": 81,
@@ -2070,7 +2070,7 @@
     },
     {
       "id": "egun",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/egun.webp",
       "weapon": "E-GUN",
       "rating": "D",
       "unlock_rank": 87,
@@ -2089,7 +2089,7 @@
     },
     {
       "id": "scx12",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/scx12.webp",
       "weapon": "SCX-12",
       "rating": "S",
       "unlock_rank": 99,
@@ -2108,7 +2108,7 @@
     },
     {
       "id": "aa12",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/aa12.webp",
       "weapon": "AA-12",
       "rating": "A",
       "unlock_rank": 112,
@@ -2127,7 +2127,7 @@
     },
     {
       "id": "spas12",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/spas12.webp",
       "weapon": "SPAS-12",
       "rating": "A",
       "unlock_rank": 120,
@@ -2146,7 +2146,7 @@
     },
     {
       "id": "dt11",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/dt11.webp",
       "weapon": "DT11",
       "rating": "B",
       "unlock_rank": 133,
@@ -2165,7 +2165,7 @@
     },
     {
       "id": "usas12",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/usas12.webp",
       "weapon": "USAS-12",
       "rating": "C",
       "unlock_rank": 189,
@@ -2184,7 +2184,7 @@
     },
     {
       "id": "smx9k",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/smx9k.webp",
       "weapon": "SMX-9K",
       "rating": "A",
       "unlock_rank": 0,
@@ -2203,7 +2203,7 @@
     },
     {
       "id": "pdx45",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/pdx45.webp",
       "weapon": "PDX-45",
       "rating": "S",
       "unlock_rank": 5,
@@ -2222,7 +2222,7 @@
     },
     {
       "id": "ar36c",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ar36c.webp",
       "weapon": "AR36C",
       "rating": "B",
       "unlock_rank": 7,
@@ -2241,7 +2241,7 @@
     },
     {
       "id": "x46a2",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/x46a2.webp",
       "weapon": "X46A2",
       "rating": "A",
       "unlock_rank": 9,
@@ -2260,7 +2260,7 @@
     },
     {
       "id": "mac10",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mac10.webp",
       "weapon": "MAC-10",
       "rating": "B",
       "unlock_rank": 23,
@@ -2279,7 +2279,7 @@
     },
     {
       "id": "p90",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/p90.webp",
       "weapon": "P90",
       "rating": "D",
       "unlock_rank": 24,
@@ -2298,7 +2298,7 @@
     },
     {
       "id": "mp9",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mp9.webp",
       "weapon": "MP-9",
       "rating": "A",
       "unlock_rank": 29,
@@ -2317,7 +2317,7 @@
     },
     {
       "id": "mk16socomcqb",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mk16socomcqb.webp",
       "weapon": "MK16 SOCOM CQB",
       "rating": "B",
       "unlock_rank": 32,
@@ -2336,7 +2336,7 @@
     },
     {
       "id": "mars",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mars.webp",
       "weapon": "MARS",
       "rating": "A",
       "unlock_rank": 36,
@@ -2355,7 +2355,7 @@
     },
     {
       "id": "smx9",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/smx9.webp",
       "weapon": "SMX-9",
       "rating": "B",
       "unlock_rank": 40,
@@ -2374,7 +2374,7 @@
     },
     {
       "id": "xm633doe",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/xm633doe.webp",
       "weapon": "XM633 DOE",
       "rating": "C",
       "unlock_rank": 49,
@@ -2393,7 +2393,7 @@
     },
     {
       "id": "l2a3",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/l2a3.webp",
       "weapon": "L2A3",
       "rating": "S",
       "unlock_rank": 53,
@@ -2412,7 +2412,7 @@
     },
     {
       "id": "smx9sd",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/smx9sd.webp",
       "weapon": "SMX-9SD",
       "rating": "S",
       "unlock_rank": 60,
@@ -2431,7 +2431,7 @@
     },
     {
       "id": "honeybadger",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/honeybadger.webp",
       "weapon": "HONEY BADGER",
       "rating": "A",
       "unlock_rank": 62,
@@ -2450,7 +2450,7 @@
     },
     {
       "id": "smx10",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/smx10.webp",
       "weapon": "SMX-10",
       "rating": "B",
       "unlock_rank": 66,
@@ -2469,7 +2469,7 @@
     },
     {
       "id": "m3a1",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m3a1.webp",
       "weapon": "M3A1",
       "rating": "S",
       "unlock_rank": 71,
@@ -2488,7 +2488,7 @@
     },
     {
       "id": "smx910",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/smx910.webp",
       "weapon": "SMX-9/10",
       "rating": "B",
       "unlock_rank": 74,
@@ -2507,7 +2507,7 @@
     },
     {
       "id": "uzi",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/uzi.webp",
       "weapon": "UZI",
       "rating": "D",
       "unlock_rank": 77,
@@ -2526,7 +2526,7 @@
     },
     {
       "id": "uara3para",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/uara3para.webp",
       "weapon": "UAR A3 PARA",
       "rating": "A",
       "unlock_rank": 80,
@@ -2545,7 +2545,7 @@
     },
     {
       "id": "k7",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/k7.webp",
       "weapon": "K7",
       "rating": "B",
       "unlock_rank": 84,
@@ -2564,7 +2564,7 @@
     },
     {
       "id": "aks74u",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/aks74u.webp",
       "weapon": "AKS-74U",
       "rating": "S",
       "unlock_rank": 88,
@@ -2583,7 +2583,7 @@
     },
     {
       "id": "ppsh41",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ppsh41.webp",
       "weapon": "PPSH-41",
       "rating": "D",
       "unlock_rank": 92,
@@ -2602,7 +2602,7 @@
     },
     {
       "id": "falparashorty",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/falparashorty.webp",
       "weapon": "FAL PARA SHORTY",
       "rating": "C",
       "unlock_rank": 96,
@@ -2621,7 +2621,7 @@
     },
     {
       "id": "vector45",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/vector45.webp",
       "weapon": "VECTOR 45",
       "rating": "A",
       "unlock_rank": 100,
@@ -2640,7 +2640,7 @@
     },
     {
       "id": "pp19bizon",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/pp19bizon.webp",
       "weapon": "PP-19 BIZON",
       "rating": "C",
       "unlock_rank": 105,
@@ -2659,7 +2659,7 @@
     },
     {
       "id": "mp40",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mp40.webp",
       "weapon": "MP40",
       "rating": "A",
       "unlock_rank": 108,
@@ -2678,7 +2678,7 @@
     },
     {
       "id": "x95smg",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/x95smg.webp",
       "weapon": "X95 SMG",
       "rating": "D",
       "unlock_rank": 115,
@@ -2697,7 +2697,7 @@
     },
     {
       "id": "tommygun",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/tommygun.webp",
       "weapon": "TOMMY GUN",
       "rating": "C",
       "unlock_rank": 121,
@@ -2716,7 +2716,7 @@
     },
     {
       "id": "rama1130",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/rama1130.webp",
       "weapon": "RAMA 1130",
       "rating": "C",
       "unlock_rank": 126,
@@ -2735,7 +2735,7 @@
     },
     {
       "id": "mac31",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/mac31.webp",
       "weapon": "MAC-31",
       "rating": "C",
       "unlock_rank": 131,
@@ -2754,7 +2754,7 @@
     },
     {
       "id": "ia2smg",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/ia2smg.webp",
       "weapon": "IA2 SMG",
       "rating": "C",
       "unlock_rank": 139,
@@ -2773,7 +2773,7 @@
     },
     {
       "id": "bwc9a",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/bwc9a.webp",
       "weapon": "BWC9 A",
       "rating": "D",
       "unlock_rank": 149,
@@ -2792,7 +2792,7 @@
     },
     {
       "id": "five0",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/five0.webp",
       "weapon": "FIVE-0",
       "rating": "S",
       "unlock_rank": 155,
@@ -2811,7 +2811,7 @@
     },
     {
       "id": "luty",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/luty.webp",
       "weapon": "LUTY",
       "rating": "F",
       "unlock_rank": 159,
@@ -2830,7 +2830,7 @@
     },
     {
       "id": "m416c",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/m416c.webp",
       "weapon": "M416C",
       "rating": "C",
       "unlock_rank": 164,
@@ -2849,7 +2849,7 @@
     },
     {
       "id": "rattler",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/rattler.webp",
       "weapon": "RATTLER",
       "rating": "B",
       "unlock_rank": 169,
@@ -2868,7 +2868,7 @@
     },
     {
       "id": "famascommando",
-      "thumbnail": null,
+      "thumbnail": "/assets/thumbnails/wiki/famascommando.webp",
       "weapon": "FAMAS COMMANDO",
       "rating": "B",
       "unlock_rank": 194,
