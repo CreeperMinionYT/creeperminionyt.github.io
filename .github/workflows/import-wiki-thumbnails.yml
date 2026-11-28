@@ -1,0 +1,71 @@
+# One-time, manually started bulk import of Phantom Forces wiki thumbnails.
+# The Fandom API must permit this authorized use; 403/429 cause a safe stop.
+name: Import wiki thumbnails
+on:
+  workflow_dispatch:
+    inputs:
+      sample_count:
+        description: 'Optional small test (0 = import all weapons)'
+        required: true
+        default: '0'
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: creeperminion-weapon-stats
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image library
+        run: python -m pip install --disable-pip-version-check Pillow
+      - name: Import wiki art for every weapon in JSON
+        env:
+          SAMPLE_COUNT: ${{ inputs.sample_count }}
+        shell: bash
+        run: |
+          if [[ "$SAMPLE_COUNT" =~ ^[0-9]+$ ]] && (( SAMPLE_COUNT > 0 )); then
+            python scripts/download_wiki_thumbnails.py --limit "$SAMPLE_COUNT"
+          else
+            python scripts/download_wiki_thumbnails.py
+          fi
+      - name: Rebuild canonical weapon JSON with local thumbnail precedence
+        env:
+          SHEET_CSV_URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQdCLSd7WHVOl6EV6ILqvyRDEJcJCDPANpQFjxhHO6RXRna8U7v-scL4SztLW9wIQ1AkFhteKMSzHhF/pub?gid=0&single=true&output=csv
+          SHEET_VIEW_URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQdCLSd7WHVOl6EV6ILqvyRDEJcJCDPANpQFjxhHO6RXRna8U7v-scL4SztLW9wIQ1AkFhteKMSzHhF/pubhtml?gid=0&single=true
+        run: |
+          python scripts/update_weapon_stats.py --url "$SHEET_CSV_URL" --sheet-link "$SHEET_VIEW_URL"
+      - name: Commit thumbnails and the refreshed database
+        id: save
+        shell: bash
+        run: |
+          git add assets/thumbnails/wiki/ assets/thumbnails/wiki-import-report.csv content/weapon-stats.json
+          if git diff --cached --quiet; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            echo 'No changes.'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Import Phantom Forces wiki weapon thumbnails'
+            git push origin HEAD:main
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Request GitHub Pages build after automated commit
+        if: steps.save.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          curl --fail-with-body --silent --show-error --location \
+            --request POST \
+            --header 'Accept: application/vnd.github+json' \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages/builds"
