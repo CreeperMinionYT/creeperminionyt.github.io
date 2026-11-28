@@ -6,7 +6,6 @@ Usage after publishing just the weapon-data tab of Google Sheets to the web:
 
 Or import an exported CSV locally:
     python scripts/update_weapon_stats.py --csv exported.csv
-
 All 14 required columns are retained. Optional extra columns: Rating (F,D,C,B,A,S), Notes, Weapon ID.
 Never overwrite data with inferred Phantom Forces values.
 """
@@ -14,7 +13,6 @@ from __future__ import annotations
 import argparse, csv, io, json, re
 from pathlib import Path
 from urllib.request import urlopen, Request
-
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'content' / 'weapon-stats.json'
 FIELDS = [
@@ -42,6 +40,15 @@ HEADER_ALIASES = {'headshot mult': 'Headshot Mult', 'range': 'Range',
 
 def slug(name):
     return re.sub(r'[^a-z0-9]+', '', name.lower())
+
+def local_thumbnail(weapon_id):
+    """Own artwork > bulk-imported art; no Sheet changes needed for replacements."""
+    for kind in ('custom', 'wiki'):
+        for ext in ('.webp', '.png', '.jpg', '.jpeg'):
+            image = ROOT / 'assets' / 'thumbnails' / kind / f'{weapon_id}{ext}'
+            if image.is_file():
+                return f'/assets/thumbnails/{kind}/{weapon_id}{ext}'
+    return None
 
 def read_csv(text):
     reader = csv.DictReader(io.StringIO(text.lstrip('\ufeff')))
@@ -101,6 +108,11 @@ def main():
             csv_text = resp.read().decode('utf-8-sig')
     else: csv_text = Path(args.csv).read_text(encoding='utf-8-sig')
     records = read_csv(csv_text)
+    # Custom files always take priority. Wiki files fill blanks; explicit Sheet images remain valid.
+    for item in records:
+        local = local_thumbnail(item['id'])
+        if local and (local.startswith('/assets/thumbnails/custom/') or not item['thumbnail']):
+            item['thumbnail'] = local
     # Reuse the existing public Sheet link unless explicitly overridden.
     previous_link = ''
     if OUTPUT.exists():
@@ -121,5 +133,4 @@ def main():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(config, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f'Updated {OUTPUT} with {len(records)} weapons')
-
 if __name__ == '__main__': main()
